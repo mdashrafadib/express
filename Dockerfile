@@ -11,8 +11,8 @@ COPY . .
 RUN npm init -y
 RUN npm install
 
-# Expose port 3000
-EXPOSE 3000
+# Expose port 80
+EXPOSE 80
 
 # Run the application
 CMD ["node", "/app/examples/hello-world/index.js"]
