@@ -1,0 +1,23 @@
+#for the continuous infrastructure provisioning we can create job for terrafor provisioning and in the second job we add build trigger build after other project
+pipeline {
+    agent any
+
+    stages {
+        
+        stage('git Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/mdashrafadib/express.git'
+            }
+        }
+        stage('Terraform init') {
+            steps {
+               sh 'terraform init'
+            }
+        }
+        stage('Terraform Destroy') {
+            steps {
+               sh 'terraform destroy --auto-approve'
+            }
+        }
+}
+}
