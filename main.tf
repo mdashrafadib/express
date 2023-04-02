@@ -35,7 +35,7 @@ resource "aws_ecs_task_definition" "my_task_definition" {
     "memory": 512,
     "portMappings": [
       {
-        "containerPort": 80,
+        "containerPort": 3000,
         "protocol": "tcp"
       }
     ],
@@ -65,7 +65,7 @@ resource "aws_ecs_service" "my_service" {
   load_balancer {
     target_group_arn = aws_lb_target_group.my_target_group.arn
     container_name   = "my-container"
-    container_port   = 80
+    container_port   = 3000
   }
   
 }
